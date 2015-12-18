@@ -1,7 +1,7 @@
 package ru.fizteh.fivt.students.riskingh.TwitterStream;
 
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
 import twitter4j.GeoLocation;
 
 import static ru.fizteh.fivt.students.riskingh.TwitterStream.GeoUtils.getLocationByPlace;
