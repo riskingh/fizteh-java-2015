@@ -20,3 +20,5 @@ workbench.xmi
 .settings
 .checkstyle
 twitter4j.properties
+riskingh/twitter4j.properties
+riskingh/src/main/resources/googleMaps.properties
