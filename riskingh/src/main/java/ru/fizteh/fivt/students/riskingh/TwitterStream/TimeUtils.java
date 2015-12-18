@@ -27,19 +27,15 @@ public class TimeUtils {
 
         if (differenceInMinutes < 2) {
             return "только что";
-        }
-        else if (differenceInHours < 1) {
+        } else if (differenceInHours < 1) {
             return Long.toString(differenceInMinutes) + " минут назад";
-        }
-        else if (calendar.get(Calendar.YEAR) == today.get(Calendar.YEAR) &&
-                calendar.get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR)) {
+        } else if (calendar.get(Calendar.YEAR) == today.get(Calendar.YEAR)
+                && calendar.get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR)) {
             return Long.toString(differenceInHours) + " часов назад";
-        }
-        else if (calendar.get(Calendar.YEAR) == yesterday.get(Calendar.YEAR) &&
-                calendar.get(Calendar.DAY_OF_YEAR) == yesterday.get(Calendar.DAY_OF_YEAR)) {
+        } else if (calendar.get(Calendar.YEAR) == yesterday.get(Calendar.YEAR)
+                && calendar.get(Calendar.DAY_OF_YEAR) == yesterday.get(Calendar.DAY_OF_YEAR)) {
             return "вчера";
-        }
-        else {
+        } else {
             return Long.toString(differenceInDays) + " дней назад";
         }
     }

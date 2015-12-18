@@ -17,8 +17,7 @@ public class TwitterStream {
                 jcommander.usage();
                 return;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             JCommander jcommander = new JCommander(settings);
             jcommander.usage();
             return;

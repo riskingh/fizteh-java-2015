@@ -58,8 +58,10 @@ public class StatusPrinter {
             }
         });
         FilterQuery filterQuery = new FilterQuery();
-        double[][] locations = {{location.getLongitude() - SEARCH_DISTANCE_IN_KM, location.getLatitude() - SEARCH_DISTANCE_IN_KM},
-                {location.getLongitude() + SEARCH_DISTANCE_IN_KM, location.getLatitude() + SEARCH_DISTANCE_IN_KM}};
+        double[][] locations = {
+                {location.getLongitude() - SEARCH_DISTANCE_IN_KM, location.getLatitude() - SEARCH_DISTANCE_IN_KM},
+                {location.getLongitude() + SEARCH_DISTANCE_IN_KM, location.getLatitude() + SEARCH_DISTANCE_IN_KM}
+        };
         filterQuery.track(settings.getQuery()).locations(locations);
         twitterStream.filter(filterQuery);
     }
