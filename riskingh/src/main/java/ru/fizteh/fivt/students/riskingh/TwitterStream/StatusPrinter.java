@@ -13,16 +13,16 @@ public class StatusPrinter {
     public static final int SEARCH_DISTANCE_IN_KM = 5;
     public static final int MILLISECONDS_IN_SECOND = 1000;
 
-    private static void printTweet(Status tweet) {
-        System.out.print("[" + TimeUtils.formatTime(tweet.getCreatedAt()) + "]");
-        System.out.print("@" + tweet.getUser().getScreenName() + ": ");
-        if (tweet.isRetweet()) {
+    public static void printStatus(Status status) {
+        System.out.print("[" + TimeUtils.formatTime(status.getCreatedAt()) + "]");
+        System.out.print("@" + status.getUser().getScreenName() + ": ");
+        if (status.isRetweet()) {
             System.out.print("ретвитнул ");
-            System.out.print(tweet.getRetweetedStatus().getUser().getScreenName() + ":");
-            System.out.print(tweet.getRetweetedStatus().getText());
+            System.out.print(status.getRetweetedStatus().getUser().getScreenName() + ":");
+            System.out.print(status.getRetweetedStatus().getText());
         } else {
-            System.out.print(tweet.getText());
-            int retweetsCount = tweet.getRetweetCount();
+            System.out.print(status.getText());
+            int retweetsCount = status.getRetweetCount();
             if (retweetsCount > 0) {
                 System.out.print("(" + retweetsCount + " ретвитов)");
             }
@@ -38,7 +38,7 @@ public class StatusPrinter {
         List<Status> statuses = queryResult.getTweets();
         statuses.stream().
                 filter(status -> !settings.hideRetweets() || !status.isRetweet()).
-                forEach(ru.fizteh.fivt.students.riskingh.TwitterStream.StatusPrinter::printTweet);
+                forEach(ru.fizteh.fivt.students.riskingh.TwitterStream.StatusPrinter::printStatus);
     }
 
     public static void stream(Settings settings, GeoLocation location) throws TwitterException {
@@ -49,7 +49,7 @@ public class StatusPrinter {
                 if (settings.hideRetweets() && status.isRetweet()) {
                     return;
                 }
-                printTweet(status);
+                printStatus(status);
                 try {
                     Thread.sleep(MILLISECONDS_IN_SECOND);
                 } catch (Exception e) {
