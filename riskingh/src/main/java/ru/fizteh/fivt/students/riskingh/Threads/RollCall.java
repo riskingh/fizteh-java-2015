@@ -45,6 +45,9 @@ public class RollCall {
     }
 
     public static void main(String[] args) {
+        if (args.length != 1) {
+            throw new IllegalArgumentException();
+        }
         finish = false;
         int n = Integer.valueOf(args[0]);
         beginAnswer = new CyclicBarrier(n + 1);
