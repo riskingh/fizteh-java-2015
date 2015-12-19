@@ -26,7 +26,9 @@ public class TimeUtilsTest {
         Assert.assertEquals("6 минут назад", formatTime(calendar.getTime()));
 
         calendar.add(Calendar.MINUTE, -54);
-        Assert.assertEquals("1 часов назад", formatTime(calendar.getTime()));
+        if (calendar.get(Calendar.HOUR) < 23) {
+            Assert.assertEquals("1 часов назад", formatTime(calendar.getTime()));
+        }
 
         calendar.add(Calendar.HOUR, -23);
         Assert.assertEquals("вчера", formatTime(calendar.getTime()));
